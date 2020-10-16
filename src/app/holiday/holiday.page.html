@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>holiday</ion-title>
+  </ion-toolbar>
+
+<ion-toolbar >
+  <ion-buttons slot="end">
+    <ion-button (click)=" presentAlertRadio()">
+      <ion-icon name="add-circle" ></ion-icon>
+      Add
+    </ion-button>
+  </ion-buttons>
+  
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div >
+    <ion-card *ngFor="let event of Events" class="ion-padding ion-margin">
+      <div *ngIf="event.startDate<event.endDate">
+        <ion-card-title>{{event.eventName}}</ion-card-title>
+        <ion-chip outline="true">
+          <ion-label color="primary">
+            {{event.startDate}} to {{event.endDate}}
+          </ion-label>
+        </ion-chip>
+      <ion-chip outline="true">
+        <ion-label color="primary">{{event.reason}}</ion-label>
+      </ion-chip>
+      </div>
+      
+    </ion-card>
+  </div>
+  
+  
+</ion-content>

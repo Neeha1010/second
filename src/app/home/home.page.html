@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary"><ion-title >Calendar</ion-title></ion-toolbar>
+  <ion-toolbar>
+    <ion-segment scrollable value="sunday" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="sunday">
+        <ion-label>sun</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="monday">
+        <ion-label>mon</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="tuesday">
+        <ion-label>tue</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="wednesday">
+        <ion-label>wed</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="thursday">
+        <ion-label>thu</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="friday">
+        <ion-label>fri</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="saturday">
+        <ion-label>sat</ion-label>
+      </ion-segment-button>
+      
+    </ion-segment>
+  </ion-toolbar>
+  <ion-toolbar >
+    <ion-buttons slot="end">
+      <ion-button (click)="presentAlertPrompt() ">
+        <ion-icon name="add-circle" ></ion-icon>
+        Add
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/','holiday']">
+        go to 
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <div *ngIf="dayEvents.length>0">
+    <ion-card  *ngFor="let event of dayEvents" class="ion-padding ion-margin">
+      <ion-card-title> {{event.eventName}}</ion-card-title>
+      <ion-chip outline="true">
+        <ion-label color="primary">
+          {{event.starttime}} to {{event.endtime}}
+        </ion-label>
+        </ion-chip>
+  </ion-card>
+
+  </div> 
+  
+</ion-content>
