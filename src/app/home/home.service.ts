@@ -72,9 +72,10 @@ present.setHours(hour,min,0);
       });
       console.log('scheduled notifications', notifs);
       console.log(present)
-      Day=Day+7
+       let Day1:number =at1.getDate() 
+         Day1=Day1+7
        if (count===14){return}
-        present.setDate(Day)
+        present.setDate(Day1)
         setNotifications(present)
       
     }
